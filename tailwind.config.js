@@ -4,7 +4,17 @@ module.exports = {
 		'./public/**/*.html',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			height: {
+				'cardPhoto': '350px'
+			},
+			minHeight: {
+				'cardPhoto': '350px'
+			},
+			maxHeight: {
+				'cardPhoto': '350px'
+			}
+		},
 	},
 	plugins: [
 		require("daisyui")

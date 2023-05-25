@@ -3,50 +3,62 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Database</title>
 	<link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
 	<div class="hero min-h-screen bg-base-200">
 		<div class="hero-content text-center">
-			<div class="max-w-lg">
-				<h1 class="text-5xl font-bold">FCU Teacher Database</h1>
-				<p class="py-6">Good Morning!</p>
+			<div class="max-w-3xl">
+				<p class="py-6 text-2xl">おはようございます！</p>
+				<h1 class="text-5xl font-bold">これは逢甲大學の教授の專頁です</h1>
 			</div>
 		</div>
 	</div>
 
-	<div class="max-w-lg">
-		<table>
-			<tr>
-				<td>
-					<div class="card card-compact w-96 bg-base-100 shadow-xl">
-						<figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-						<div class="card-body">
-						  <h2 class="card-title">Shoes!</h2>
-						  <p>If a dog chews shoes whose shoes does he choose?</p>
-						  <div class="card-actions justify-end">
-							<button class="btn btn-primary">Buy Now</button>
-						  </div>
-						</div>
-					  </div>
-				</td>
-				<td>
-					<div class="card card-compact w-96 bg-base-100 shadow-xl">
-						<figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-						<div class="card-body">
-							<h2 class="card-title">Shoes!</h2>
-							<p>If a dog chews shoes whose shoes does he choose?</p>
-							<div class="card-actions justify-end">
-								<button class="btn btn-primary">Buy Now</button>
+	<div class="flex justify-center min-w-full">
+		<div class="flex justify-between pt-10 pb-10 w-9/12">
+			<button class="btn">Filter</button>
+
+			<div class="btn-group btn-group-vertical lg:btn-group-horizontal">
+				<button class="btn" id="mainPageToggleEditBtn" onclick="toggleEdit()">EDIT</button>
+				<button class="btn btn-success" id="mainPageAddBtn" onclick="redirectToAddPage()">Add</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid h-full place-content-center pt-16 pb-32">
+		<div class="max-w-5xl">
+			<div class="grid grid-cols-4 gap-4" id="teacherCardTable">
+
+				<div class="w-60">
+					<div class="mainPageEditBtn flex w-full justify-between invisible">
+						<button class="btn btn-circle btn-accent">
+							<p>Edit</p>
+						</button>
+						<button class="btn btn-circle btn-outline btn-error">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+						</button>
+					</div>
+					<div class="flex w-full justify-center h-cardPhoto">
+						<div class="card w-48 bg-primary shadow-xl hover:scale-110 duration-100 teacherCard" onclick="redirectToEditPage()">
+							<figure><img src="https://static1.personality-database.com/profile_images/7dc21e53b91342679cc66131b60ea8b4.png" alt=""/></figure>
+							<div class="card-body">
+								<div class="grid w-full justify-items-center">
+									<h2 class="card-title text-neutral">せんせい</h2>
+									<p class="text-neutral">教授</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</td>
-			</tr>
-		</table>
+				</div>
+				
+			</div>
+		</div>
 	</div>
+	
+		
 </body>
 
 <script src="javascripts/scripts.js"></script>
