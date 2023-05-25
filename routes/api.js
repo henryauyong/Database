@@ -24,7 +24,7 @@ connection.query(
 */
 
 router.post('/add', (req, res) => {
-    const {id, test} = req.body;
+    const { id, test } = req.body;
     console.log('Success!');
 
     connection.query(
