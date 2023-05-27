@@ -1,5 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const multer = require("multer");
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
+const upload = multer({
+    dest: "./public/uploads/"
+});
 
 // get the client
 const mysql = require('mysql2');
@@ -23,18 +30,41 @@ connection.query(
 )
 */
 
-router.post('/add', (req, res) => {
-    const { id, test } = req.body;
+router.post('/edit', upload.single("file"), (req, res) => {
+    const { teacherId, teacherName, teacherTitle, teacherEmail, teacherPhone } = req.body;
     console.log('Success!');
+    console.log(req.file.filename);
+
+    fs.renameSync(req.file.path, "./public/uploads/" + teacherId + ".png", (err) => {
+        if (err) throw err;    
+    });
 
     connection.query(
-        'INSERT INTO Test (id, test) VALUES (?, ?)', [id, test],
+        'UPDATE `Professors` SET `Name`=?,`Email`=?,`Phone`=?,`Position`=? WHERE `Professor_ID`=?', [teacherName, teacherTitle, teacherEmail, teacherPhone, teacherId],
         function (err, result) {
             console.log(result);
         }
     )
 
-    res.redirect('/success.html');
+    res.status(200);
+    res.redirect('/success');    
+})
+
+router.post('/add', upload.single("file"), (req, res) => {
+
+})
+
+router.get('/get', (req, res) => {
+    const id = req.query.id;
+    console.log('Success!');
+
+    connection.query(
+        'SELECT * FROM Professors WHERE Professor_ID = ?', [id],
+        function (err, result) {
+            console.log(result);
+            res.json(result);
+        }
+    )
 })
 
 module.exports = router;

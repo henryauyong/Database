@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <img alt="" id="teacherImage">
+    <form action="/api/edit" enctype="multipart/form-data" method="post">
+        <input type="hidden" id="teacherId" name="teacherId">
+        <input type="text" id="teacherName" name="teacherName" placeholder="教授名稱">
+        <input type="text" id="teacherTitle" name="teacherTitle" placeholder="教授職稱">
+        <input type="text" id="teacherEmail" name="teacherEmail" placeholder="電子郵件">
+        <input type="text" id="teacherPhone" name="teacherPhone" placeholder="電話">
+        <input type="file" name="file">
+        <button class="btn" type="submit">送出</button>
+        <!-- <input type="submit" value="送出"> -->
+    </form>
+</body>
+</html>
