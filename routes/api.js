@@ -42,9 +42,9 @@ router.post('/edit', upload.single("file"), (req, res) => {
 router.post('/add', upload.single("file"), (req, res) => {
     let newTeacherId = 0;
     const { teacherName, teacherTitle, teacherEmail, teacherPhone } = req.body;
-    console.log('Success!');
+    
 
-    console.log(req.body);
+    // console.log(req.body);
 
     // return res.status(200);
 
@@ -53,6 +53,7 @@ router.post('/add', upload.single("file"), (req, res) => {
         function (err, result) {
             if (err) throw err;
             // console.log(result);
+            console.log(teacherName);
 
             connection.query(
                 'SELECT MAX(Professor_ID) FROM Professors', [],
@@ -106,6 +107,7 @@ router.post('/add', upload.single("file"), (req, res) => {
         }
     )
 
+    console.log('Success!');
     res.redirect('/success');
     return res.status(200);
 })
