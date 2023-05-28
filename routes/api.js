@@ -50,8 +50,21 @@ router.post('/edit', upload.single("file"), (req, res) => {
     res.redirect('/success');    
 })
 
-router.post('/add', upload.single("file"), (req, res) => {
+router.post('/add', (req, res) => {
+    const { name, title, email, phone, photo, education, expertise } = req.body;
+    console.log(name, title, email, phone, photo, education, expertise);
+    console.log('Success!');
 
+    connection.query(
+        'INSERT INTO `Professors`(`Name`, `Email`, `Phone`, `Position`) VALUES (?,?,?,?)', [name, email, phone, title],
+        function (err, result) {
+            if(err) throw err;
+            console.log(result);
+        }
+    )
+
+    res.redirect('/success');
+    return res.status(200);
 })
 
 router.get('/get', (req, res) => {
@@ -61,6 +74,7 @@ router.get('/get', (req, res) => {
     connection.query(
         'SELECT * FROM Professors WHERE Professor_ID = ?', [id],
         function (err, result) {
+            if(err) throw err;
             console.log(result);
             res.json(result);
         }
