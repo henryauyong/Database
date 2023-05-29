@@ -24,37 +24,35 @@
                             <label class="label">
                                 <span class="label-text">教授名字</span>
                             </label>
-                            <input type="text" placeholder="陳小明" class="input input-bordered w-full max-w-xs"
-                                name="teacherName" id="teacherNameInput" />
+                            <input type="text" placeholder="陳小明" class="input input-bordered w-full max-w-xs" name="teacherName"
+                                id="teacherNameInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">教授職稱</span>
                             </label>
-                            <input type="text" placeholder="教授" class="input input-bordered w-full max-w-xs"
-                                name="teacherTitle" id="teacherTitleInput" />
+                            <input type="text" placeholder="教授" class="input input-bordered w-full max-w-xs" name="teacherTitle"
+                                id="teacherTitleInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">電子郵件</span>
                             </label>
-                            <input type="email" placeholder="example@gmail.com"
-                                class="input input-bordered w-full max-w-xs" name="teacherEmail"
+                            <input type="email" placeholder="example@example.com" class="input input-bordered w-full max-w-xs" name="teacherEmail"
                                 id="teacherEmailInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">電話號碼</span>
                             </label>
-                            <input type="text" placeholder="1234567890" class="input input-bordered w-full max-w-xs"
-                                name="teacherPhone" id="teacherPhoneInput" />
+                            <input type="text" placeholder="1234567890" class="input input-bordered w-full max-w-xs" name="teacherPhone"
+                                id="teacherPhoneInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">照片</span>
                             </label>
-                            <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="file"
-                                id="teacherPhotoInput" />
+                            <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="file" id="teacherPhotoInput" />
                         </div>
                     </div>
                 </div>
@@ -67,8 +65,7 @@
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-start gap-4 w-full pt-4">
                             <div class="input-group">
-                                <input type="text" placeholder="逢甲大學" class="input input-bordered"
-                                    id="educationInput" />
+                                <input type="text" placeholder="逢甲大學" class="input input-bordered" id="educationInput" />
                                 <button class="btn btn-square" type="button" onclick="addEducationEntry()">
                                     新增
                                 </button>
@@ -126,11 +123,11 @@
                             <div class="flex gap-2 min-w-fit">
                                 <label class="label cursor-pointer gap-2">
                                     <span class="label-text">校內經歷</span>
-                                    <input type="checkbox" class="toggle" id="experienceTypeInput"/>
+                                    <input type="checkbox" class="toggle" id="experienceTypeInput" />
                                     <span class="label-text">校外經歷</span>
                                 </label>
                             </div>
-                            
+
                             <div class="input-group">
                                 <input type="text" placeholder="經歷" class="input input-bordered" id="experienceInput" />
                                 <button class="btn btn-square" type="button" onclick="addExperienceEntry()">
@@ -155,6 +152,142 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- 寫計畫部分 輸入欄位有：計畫名稱、計畫時間、計畫編號、計畫身份 欄位模仿基本資料-->
+                <div class="collapse w-full">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium bg-base-300 rounded-box">
+                        計畫
+                    </div>
+                    <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
+                        <div class="flex justify-between gap-4 w-full pt-4">
+                            <div class="gap-4 flex justify-between w-full">
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">名稱</span>
+                                    </label>
+                                    <input type="text" placeholder="國科會計畫" class="input input-bordered w-full max-w-xs"
+                                        id="projectNameInput" />
+                                </div>
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">時間</span>
+                                    </label>
+                                    <input type="text" placeholder="2001-01~2020-12" class="input input-bordered w-full max-w-xs"
+                                        id="projectTimeInput" />
+                                </div>
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">編號</span>
+                                    </label>
+                                    <input type="text" placeholder="xxxx-xxxx-xxxx" class="input input-bordered w-full max-w-xs"
+                                        id="projectSerialInput" />
+                                </div>
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">身份</span>
+                                    </label>
+                                    <input type="text" placeholder="主持人" class="input input-bordered w-full max-w-xs"
+                                        id="projectIdentityInput" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">‎</span>
+                                    </label>
+                                    <button class="btn btn-square" type="button" onclick="addProjectEntry()">
+                                        新增
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col rounded-box w-full">
+                            <div class="overflow-x-auto">
+                                <table class="table w-full">
+                                    <thead>
+                                        <tr>
+                                            <th>計畫名稱</th>
+                                            <th>計畫時間</th>
+                                            <th>計畫編號</th>
+                                            <th>計畫身份</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="projectTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="collapse w-full">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium bg-base-300 rounded-box">
+                        論文
+                    </div>
+                    <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
+                        <div class="flex justify-between gap-4 w-full pt-4">
+                            <div class="gap-4 flex justify-between w-full">
+                                <div class="form-control w-full">
+                                    <label class="label">
+                                        <span class="label-text">作者</span>
+                                    </label>
+                                    <input type="text" placeholder="Lee, J.S., Chen, Y. C." class="input input-bordered w-full max-w-xs"
+                                        id="paperAuthorInput" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text">標題</span>
+                                    </label>
+                                    <input type="text" placeholder="Never Gonna Give You Up" class="input input-bordered w-full max-w-xs"
+                                        id="paperTitleInput" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text">刊登位置</span>
+                                    </label>
+                                    <input type="text" placeholder="FCU IECS" class="input input-bordered w-full max-w-xs"
+                                        id="paperLocationInput" />
+                                </div>
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text">時間</span>
+                                    </label>
+                                    <input type="text" placeholder="2023-03" class="input input-bordered w-full max-w-xs"
+                                        id="paperTimeInput" />
+                                </div>
+
+                                <div class="form-control w-full max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text">‎</span>
+                                    </label>
+                                    <button class="btn btn-square" type="button" onclick="addPaperEntry()">
+                                        新增
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col rounded-box w-full">
+                            <div class="overflow-x-auto">
+                                <table class="table w-full">
+                                    <thead>
+                                        <tr>
+                                            <th>論文作者</th>
+                                            <th>論文標題</th>
+                                            <th>投稿位置</th>
+                                            <th>投稿時間</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="paperTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <button class="btn" type="submit">Submit</button>

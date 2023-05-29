@@ -77,7 +77,7 @@ router.post('/add', upload.single("file"), (req, res) => {
                                 'INSERT INTO `Education`(`Professor_ID`, `Content`) VALUES (?,?)', [newTeacherId, req.body[key]],
                                 function (err, result) {
                                     if (err) throw err;
-                                    // console.log(result);
+                                    console.log(result);
                                 }
                             )
                         }
@@ -87,17 +87,35 @@ router.post('/add', upload.single("file"), (req, res) => {
                                 'INSERT INTO `Expertise`(`Professor_ID`, `Content`) VALUES (?,?)', [newTeacherId, req.body[key]],
                                 function (err, result) {
                                     if (err) throw err;
-                                    // console.log(result);
+                                    console.log(result);
                                 }
                             )
                         }
 
                         if (key.includes("experienceType")) {
                             connection.query(
-                                'INSERT INTO `Experiences`(`Professor_ID`, `Experience_Type`, `Content`) VALUES (?,?,?)', [newTeacherId, req.body[key], req.body[key.replace("Type", "Entry")]],
+                                'INSERT INTO `Experiences`(`Professor_ID`, `Type`, `Content`) VALUES (?,?,?)', [newTeacherId, req.body[key], req.body[key.replace("Type", "Entry")]],
                                 function (err, result) {
                                     if (err) throw err;
-                                    // console.log(result);
+                                    console.log(result);
+                                }
+                            )
+                        }
+                        if (key.includes("projectName")) {
+                            connection.query(
+                                'INSERT INTO `Projects`(`Professor_ID`, `Name`,  `Time`, `Serial_Code`, `Identity`) VALUES (?,?,?,?,?)', [newTeacherId, req.body[key], req.body[key.replace("Name", "Time")], req.body[key.replace("Name", "Serial")], req.body[key.replace("Name", "Identity")]],
+                                function (err, result) {
+                                    if (err) throw err;     
+                                    console.log(result);
+                                }
+                            )
+                        }
+                        if (key.includes("paperAuthor")) {
+                            connection.query(
+                                'INSERT INTO `Papers`(`Professor_ID`, `Author`, `Title`, `Location`, `Time`) VALUES (?,?,?,?,?)', [newTeacherId, req.body[key], req.body[key.replace("Author", "Title")], req.body[key.replace("Author", "Location")], req.body[key.replace("Author", "Time")]],
+                                function (err, result) {
+                                    if (err) throw err;
+                                    console.log(result);
                                 }
                             )
                         }
