@@ -11,7 +11,11 @@ async function getTeacherInfo() {
     document.getElementById('teacherTitle').value = data[0].Position;
     document.getElementById('teacherEmail').value = data[0].Email;
     document.getElementById('teacherPhone').value = data[0].Phone;
-    document.getElementById('teacherImage').src = '/uploads/' + data[0].Professor_ID + ".png";
+    try{
+        document.getElementById('teacherImage').src = '/uploads/' + data[0].Professor_ID;
+    } catch (err) {
+        throw err;
+    }
 }
 
 getTeacherInfo();

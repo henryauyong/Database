@@ -24,35 +24,37 @@
                             <label class="label">
                                 <span class="label-text">教授名字</span>
                             </label>
-                            <input type="text" placeholder="陳小明" class="input input-bordered w-full max-w-xs" name="teacherName"
-                                id="teacherNameInput" />
+                            <input type="text" placeholder="陳小明" class="input input-bordered w-full max-w-xs"
+                                name="teacherName" id="teacherNameInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">教授職稱</span>
                             </label>
-                            <input type="text" placeholder="教授" class="input input-bordered w-full max-w-xs" name="teacherTitle"
-                                id="teacherTitleInput" />
+                            <input type="text" placeholder="教授" class="input input-bordered w-full max-w-xs"
+                                name="teacherTitle" id="teacherTitleInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">電子郵件</span>
                             </label>
-                            <input type="email" placeholder="example@gmail.com" class="input input-bordered w-full max-w-xs" name="teacherEmail"
+                            <input type="email" placeholder="example@gmail.com"
+                                class="input input-bordered w-full max-w-xs" name="teacherEmail"
                                 id="teacherEmailInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">電話號碼</span>
                             </label>
-                            <input type="text" placeholder="1234567890" class="input input-bordered w-full max-w-xs" name="teacherPhone"
-                                id="teacherPhoneInput" />
+                            <input type="text" placeholder="1234567890" class="input input-bordered w-full max-w-xs"
+                                name="teacherPhone" id="teacherPhoneInput" />
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">照片</span>
                             </label>
-                            <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="teacherPhoto" id="teacherPhotoInput" />
+                            <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="file"
+                                id="teacherPhotoInput" />
                         </div>
                     </div>
                 </div>
@@ -64,11 +66,12 @@
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-start gap-4 w-full pt-4">
-                            <div class="form-control w-full max-w-md">
-                                <input type="text" placeholder="逢甲大學" class="input input-bordered w-full" name="teacherName" id="educationInput" />
-                            </div>
-                            <div class="w-full max-w-xs">
-                                <button class="btn" id="educationAddBtn" onclick="addEducationEntry()">新增</button>
+                            <div class="input-group">
+                                <input type="text" placeholder="逢甲大學" class="input input-bordered"
+                                    id="educationInput" />
+                                <button class="btn btn-square" type="button" onclick="addEducationEntry()">
+                                    新增
+                                </button>
                             </div>
                         </div>
 
@@ -88,11 +91,11 @@
                         </div>
 
                         <div class="flex justify-start gap-4 w-full pt-4">
-                            <div class="form-control w-full max-w-md">
-                                <input type="text" placeholder="專長" class="input input-bordered w-full" name="teacherName" id="expertiseInput" />
-                            </div>
-                            <div class="w-full max-w-xs">
-                                <button class="btn" id="expertiseAddBtn" onclick="addExpertiseEntry()">新增</button>
+                            <div class="input-group">
+                                <input type="text" placeholder="專長" class="input input-bordered" id="expertiseInput" />
+                                <button class="btn btn-square" type="button" onclick="addExpertiseEntry()">
+                                    新增
+                                </button>
                             </div>
                         </div>
 
@@ -112,8 +115,49 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="collapse w-full">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-xl font-medium bg-base-300 rounded-box">
+                        經歷
+                    </div>
+                    <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
+                        <div class="flex justify-start gap-4 w-full pt-4">
+                            <div class="flex gap-2 min-w-fit">
+                                <label class="label cursor-pointer gap-2">
+                                    <span class="label-text">校內經歷</span>
+                                    <input type="checkbox" class="toggle" id="experienceTypeInput"/>
+                                    <span class="label-text">校外經歷</span>
+                                </label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="text" placeholder="經歷" class="input input-bordered" id="experienceInput" />
+                                <button class="btn btn-square" type="button" onclick="addExperienceEntry()">
+                                    新增
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col rounded-box w-full">
+                            <div class="overflow-x-auto">
+                                <table class="table w-full">
+                                    <thead>
+                                        <tr>
+                                            <th>類型</th>
+                                            <th>經歷</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="experienceTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="btn" type="submit" onclick="submitForm()">Submit</button>
+            <button class="btn" type="submit">Submit</button>
         </form>
     </div>
 </body>

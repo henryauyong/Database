@@ -1,21 +1,26 @@
+let educationTableIndex = 0;
+let expertiseTableIndex = 0;
+let experienceTableIndex = 0;
+
 function addEducationEntry() {
     if (document.getElementById("educationInput").value == "") {
         alert("請輸入學歷");
         return;
     }
-    console.log("addEntry");
+    console.log("addEducationEntry");
     console.log(document.getElementById("educationInput").value);
-    educationTable.innerHTML += '<tr><td>' + document.getElementById("educationInput").value + '</td><td><button class="btn btn-sm btn-ghost educationTableDelButton">刪除</button></td></tr>';
+    educationTable.innerHTML += '<tr><td><input type="hidden" name="educationTableEntry' + educationTableIndex + '" value="' + document.getElementById("educationInput").value + '">' + document.getElementById("educationInput").value + '</td><td><div class="flex w-full justify-end"><button class="btn btn-sm btn-outline btn-error educationTableDelButton" type="button">刪除</button></div></td></tr>';
 
     Array.from(document.getElementsByClassName("educationTableDelButton")).forEach((element) => {
         element.addEventListener("click", () => {
-            element.parentElement.parentElement.remove();
+            element.parentElement.parentElement.parentElement.remove();
             console.log("delete");
         });
         // console.log("owo");
     });
 
     document.getElementById("educationInput").value = "";
+    educationTableIndex++;
 }
 
 function addExpertiseEntry() {
@@ -23,97 +28,40 @@ function addExpertiseEntry() {
         alert("請輸入專長");
         return;
     }
-    console.log("addEntry");
+    console.log("addExpertiseEntry");
     console.log(document.getElementById("expertiseInput").value);
-    expertiseTable.innerHTML += '<tr><td>' + document.getElementById("expertiseInput").value + '</td><td><button class="btn btn-sm btn-ghost expertiseTableDelButton">刪除</button></td></tr>'
+    expertiseTable.innerHTML += '<tr><td><input type="hidden" name="expertiseTableEntry' + expertiseTableIndex + '" value="' + document.getElementById("expertiseInput").value + '">' + document.getElementById("expertiseInput").value + '</td><td><div class="flex w-full justify-end"><button class="btn btn-sm btn-outline btn-error expertiseTableDelButton" type="button">刪除</button></div></td></tr>'
 
     Array.from(document.getElementsByClassName("expertiseTableDelButton")).forEach((element) => {
         element.addEventListener("click", () => {
-            element.parentElement.parentElement.remove();
+            element.parentElement.parentElement.parentElement.remove();
             console.log("delete");
         });
         // console.log("owo");
     });
 
     document.getElementById("expertiseInput").value = "";
+    expertiseTableIndex++;
 }
 
-// document.getElementById("addForm").addEventListener("submit", async function(event) {
-//     event.preventDefault();
+function addExperienceEntry() {
+    if (document.getElementById("experienceInput").value == "") {
+        alert("請輸入經歷");
+        return;
+    }
+    let type = "校內";
+    if(document.getElementById("experienceTypeInput").checked) type = "校外";
+    
+    experienceTable.innerHTML += '<tr><td><input type="hidden" name="experienceType' + experienceTableIndex + '" value="' + type + '" />' + type + '</td><td><input type="hidden" name="experienceEntry' + experienceTableIndex + '" value="' + document.getElementById("experienceInput").value + '" />' + document.getElementById("experienceInput").value + '</td><td><div class="flex w-full justify-end"><button class="btn btn-sm btn-outline btn-error experienceTableDelButton" type="button">刪除</button></div></td></tr>'
 
-//     const formData = new FormData(event.target);
-//     const name = formData.get("name");
-//     const title = formData.get("title");
-//     const email = formData.get("email");
-//     const phone = formData.get("phone");
-//     const photo = formData.get("photo");
-//     const education = Array.from(document.getElementById("educationTable").getElementsByTagName("tr")).map((element) => {
-//         return element.getElementsByTagName("td")[0].innerHTML;
-//     });
-//     const expertise = Array.from(document.getElementById("expertiseTable").getElementsByTagName("tr")).map((element) => {
-//         return element.getElementsByTagName("td")[0].innerHTML;
-//     });
-
-//     console.log(name, title, email, phone, photo, education, expertise);
-
-//     const res = await fetch("/add", { method: "POST", body: JSON.stringify({ name, title, email, phone, photo, education, expertise }), headers: { "Content-Type": "application/json" } });
-
-//     if(res.status == 200) {
-//         alert("新增成功");
-//         window.location.href = "/success";
-//     } else {
-//         alert("新增失敗");
-//     }
-// });
-
-async function submitForm() {
-
-    if (document.getElementById("teacherNameInput").value == "") {
-        alert("請輸入姓名");
-        return;
-    }
-    if (document.getElementById("teacherTitleInput").value == "") {
-        alert("請輸入職稱");
-        return;
-    }
-    if (document.getElementById("teacherEmailInput").value == "") {
-        alert("請輸入信箱");
-        return;
-    }
-    if (document.getElementById("teacherPhoneInput").value == "") {
-        alert("請輸入電話");
-        return;
-    }
-    if (document.getElementById("teacherPhotoInput").value == "") {
-        alert("請上傳照片");
-        return;
-    }
-    if (document.getElementById("educationTable").getElementsByTagName("tr").length == 0) {
-        alert("請新增學歷");
-        return;
-    }
-    if (document.getElementById("expertiseTable").getElementsByTagName("tr").length == 0) {
-        alert("請新增專長");
-        return;
-    }
-    const name = document.getElementById("teacherNameInput").value;
-    const title = document.getElementById("teacherTitleInput").value;
-    const email = document.getElementById("teacherEmailInput").value;
-    const phone = document.getElementById("teacherPhoneInput").value;
-    const photo = document.getElementById("teacherPhotoInput").value;
-    const education = Array.from(document.getElementById("educationTable").getElementsByTagName("tr")).map((element) => {
-        return element.getElementsByTagName("td")[0].innerHTML;
+    Array.from(document.getElementsByClassName("experienceTableDelButton")).forEach((element) => {
+        element.addEventListener("click", () => {
+            element.parentElement.parentElement.parentElement.remove();
+            console.log("delete");
+        });
+        // console.log("owo");
     });
-    const expertise = Array.from(document.getElementById("expertiseTable").getElementsByTagName("tr")).map((element) => {
-        return element.getElementsByTagName("td")[0].innerHTML;
-    });
-
-    console.log(name, title, email, phone, photo, education, expertise);
-
-    const res = await fetch("http://localhost:3000/api/add", { method: "POST", body: JSON.stringify({ name, title, email, phone, photo, education, expertise }), headers: { "Content-Type": "application/json" } })
-
-    if (res.status == 200) {
-        alert("新增成功");
-        window.location.href = "/success";
-    }
+    
+    experienceInput.value = "";
+    experienceTableIndex++;
 }

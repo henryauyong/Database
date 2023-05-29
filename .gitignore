@@ -1,3 +1,4 @@
 node_modules
 public/DatabaseSample
 .DS_Store
+public/uploads/*
