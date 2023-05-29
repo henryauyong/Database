@@ -40,7 +40,7 @@ module.exports = {
 
 					"warning": "#FA942E",
 
-					"error": "#F51432",
+					"error": "#F51432"
 				},
 			},
 		],
