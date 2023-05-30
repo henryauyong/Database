@@ -144,36 +144,36 @@ function addPaperEntry() {
 
 document.getElementById("basicInfoCheckbox").addEventListener("change", () => {
     if (document.getElementById("basicInfoCheckbox").checked) {
-        document.getElementById("basicInfoCollapse").innerHTML = "基本個人資料 -";
+        document.getElementById("basicInfoCollapse").innerHTML = "－ 基本個人資料";
     } else {
-        document.getElementById("basicInfoCollapse").innerHTML = "基本個人資料 +";
+        document.getElementById("basicInfoCollapse").innerHTML = "＋ 基本個人資料";
     }
 });
 document.getElementById("expertiseCheckbox").addEventListener("change", () => {
     if (document.getElementById("expertiseCheckbox").checked) {
-        document.getElementById("expertiseCollapse").innerHTML = "學歷及專長 -";
+        document.getElementById("expertiseCollapse").innerHTML = "－ 學歷及專長";
     } else {
-        document.getElementById("expertiseCollapse").innerHTML = "學歷及專長 +";
+        document.getElementById("expertiseCollapse").innerHTML = "＋ 學歷及專長";
     }
 });
 document.getElementById("experienceCheckbox").addEventListener("change", () => {
     if (document.getElementById("experienceCheckbox").checked) {
-        document.getElementById("experienceCollapse").innerHTML = "經歷 -";
+        document.getElementById("experienceCollapse").innerHTML = "－ 經歷";
     } else {
-        document.getElementById("experienceCollapse").innerHTML = "經歷 +";
+        document.getElementById("experienceCollapse").innerHTML = "＋ 經歷";
     }
 });
 document.getElementById("projectCheckbox").addEventListener("change", () => {
     if (document.getElementById("projectCheckbox").checked) {
-        document.getElementById("projectCollapse").innerHTML = "計畫 -";
+        document.getElementById("projectCollapse").innerHTML = "－ 計畫";
     } else {
-        document.getElementById("projectCollapse").innerHTML = "計畫 +";
+        document.getElementById("projectCollapse").innerHTML = "＋ 計畫";
     }
 });
 document.getElementById("paperCheckbox").addEventListener("change", () => {
     if (document.getElementById("paperCheckbox").checked) {
-        document.getElementById("paperCollapse").innerHTML = "論文 -";
+        document.getElementById("paperCollapse").innerHTML = "－ 論文";
     } else {
-        document.getElementById("paperCollapse").innerHTML = "論文 +";
+        document.getElementById("paperCollapse").innerHTML = "＋ 論文";
     }
 });

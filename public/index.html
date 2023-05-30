@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Database</title>
 	<link rel="stylesheet" href="stylesheets/style.css">
+	<script src="javascripts/scripts.js" defer></script>
 </head>
 
 <body>
@@ -16,51 +17,43 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="flex justify-center min-w-full">
-		<div class="flex justify-between pt-10 pb-10 w-9/12">
-			<button class="btn">Filter</button>
-
-			<div class="btn-group btn-group-vertical lg:btn-group-horizontal">
-				<button class="btn" id="mainPageToggleEditBtn" onclick="toggleEdit()">EDIT</button>
-				<button class="btn btn-success" id="mainPageAddBtn" onclick="redirectToAddPage()">Add</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="grid h-full place-content-center pt-16 pb-32">
-		<div class="max-w-5xl">
-			<div class="grid grid-cols-4 gap-4" id="teacherCardTable">
-
-				<div class="w-60">
-					<div class="mainPageEditBtn flex w-full justify-between invisible">
-						<button class="btn btn-circle btn-accent">
-							<p>Edit</p>
-						</button>
-						<button class="btn btn-circle btn-outline btn-error">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-						</button>
-					</div>
-					<div class="flex w-full justify-center h-cardPhoto">
-						<div class="card w-48 bg-primary shadow-xl hover:scale-110 duration-100 teacherCard" id="1">
-							<figure><img src="./uploads/8845ecf0e0e1d19daf84683fda842412.png" alt=""/></figure>
-							<div class="card-body">
-								<div class="grid w-full justify-items-center">
-									<h2 class="card-title text-neutral">せんせい</h2>
-									<p class="text-neutral">教授</p>
-								</div>
-							</div>
-						</div>
-					</div>
+	<form action="api/delete" method="POST" id="deleteForm">
+		<input type="checkbox" id="deleteModal" class="modal-toggle" />
+		<div class="modal">
+			<div class="modal-box">
+				<h1 class="font-bold text-4xl text-center">確定刪除資料？</h1>
+				<p class="py-4 text-center">此動作不能復原</p>
+				<div class="modal-action">
+					<label for="deleteModal" class="btn">取消</label>
+					<button type="submit" class="btn btn-error btn-outline">刪除</button>
 				</div>
-				
 			</div>
 		</div>
-	</div>
-	
-		
+		<div class="flex justify-center min-w-full">
+			<div class="flex justify-end pt-10 pb-10 w-9/12 gap-4">
+				<label class="label cursor-pointer gap-2 invisible" id="mainPageSelectAll">
+					<span class="label-text">全選</span> 
+					<input type="checkbox" class="checkbox-primary checkbox" disabled id="mainPageSelectAllCheckbox">
+				</label>
+				<div class="btn-group btn-group-vertical lg:btn-group-horizontal">
+					<label for="deleteModal" type="button" class="btn btn-error btn-disabled" id="mainPageDeleteBtn">刪除</label>
+					<button class="btn" id="mainPageToggleEditBtn" type="button" onclick="toggleEdit()">編輯</button>
+					<button class="btn btn-success" id="mainPageAddBtn" type="button"
+						onclick="redirectToAddPage()">新增</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid h-full place-content-center pt-16 pb-32">
+			<div class="max-w-5xl">
+				<div class="grid grid-cols-4 gap-4" id="teacherCardTable">
+				</div>
+
+			</div>
+		</div>
+	</form>
+
 </body>
 
-<script src="javascripts/scripts.js"></script>
 
 </html>

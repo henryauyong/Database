@@ -22,9 +22,9 @@
         <form action="/api/add" enctype="multipart/form-data" method="post" id="addForm" class="w-full h-full">
             <div class="flex flex-col gap-4 w-full">
                 <div class="collapse w-full">
-                    <input type="checkbox" id="basicInfoCheckbox" />
+                    <input type="checkbox" id="basicInfoCheckbox" checked/>
                     <div class="collapse-title text-xl font-medium bg-base-300 rounded-box" id="basicInfoCollapse">
-                        基本個人資料 +
+                        － 基本個人資料
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex justify-start gap-4">
                         <div class="flex flex-col gap-4 w-full pt-4">
@@ -83,7 +83,7 @@
                 <div class="collapse w-full">
                     <input type="checkbox" id="expertiseCheckbox" />
                     <div class="collapse-title text-xl font-medium bg-base-300 rounded-box" id="expertiseCollapse">
-                        學歷及專長 +
+                        ＋ 學歷及專長
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-start gap-4 w-full pt-4">
@@ -140,7 +140,7 @@
                 <div class="collapse w-full">
                     <input type="checkbox" id="experienceCheckbox" />
                     <div class="collapse-title text-xl font-medium bg-base-300 rounded-box" id="experienceCollapse">
-                        經歷 +
+                        ＋ 經歷
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-start gap-4 w-full pt-4">
@@ -181,7 +181,7 @@
                 <div class="collapse w-full">
                     <input type="checkbox" id="projectCheckbox" />
                     <div class="collapse-title text-xl font-medium bg-base-300 rounded-box" id="projectCollapse">
-                        計畫 +
+                        ＋ 計畫
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-between gap-4 w-full pt-4">
@@ -248,7 +248,7 @@
                 <div class="collapse w-full">
                     <input type="checkbox" id="paperCheckbox" />
                     <div class="collapse-title text-xl font-medium bg-base-300 rounded-box" id="paperCollapse">
-                        論文 +
+                        ＋ 論文
                     </div>
                     <div class="collapse-content bg-base-300 rounded-box flex flex-col justify-start gap-4">
                         <div class="flex justify-between gap-4 w-full pt-4">
@@ -314,8 +314,19 @@
 
                 </div>
             </div>
-            <div class="w-full flex justify-end pb-4 pt-4">
-                <button class="btn btn-success" type="sumbit">提交</button>
+            <input type="checkbox" id="addModal" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box">
+                    <h1 class="font-bold text-4xl text-center">確定新增資料？</h1>
+                    <div class="modal-action">
+                        <label for="addModal" class="btn">取消</label>
+                        <button class="btn btn-success" type="sumbit">新增</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full flex justify-end pb-4 pt-4 gap-4">
+                <label for="addModal" type="button" class="btn btn-success">新增</label>
             </div>
         </form>
     </div>

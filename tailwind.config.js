@@ -6,13 +6,13 @@ module.exports = {
 	theme: {
 		extend: {
 			height: {
-				'cardPhoto': '350px'
+				'cardPhoto': '300px'
 			},
 			minHeight: {
-				'cardPhoto': '350px'
+				'cardPhoto': '300px'
 			},
 			maxHeight: {
-				'cardPhoto': '350px'
+				'cardPhoto': '300px'
 			}
 		},
 	},

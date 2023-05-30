@@ -10,17 +10,7 @@ const upload = multer({
     dest: "./public/uploads/"
 });
 
-const connection = mysql.createConnection({
-    host: '140.134.208.81',
-    port: '8762',
-    user: 'D1031405',
-    password: 'LyImD9z8V_m]am5J',
-    database: 'D1050961'
-});
-
-router.post('/delete', (req, res) => {
-    const { teacherId } = req.body;
-
+async function deleteTeacher(teacherId) {
     async.parallel([
         function (callback) {
             connection.query(
@@ -77,8 +67,37 @@ router.post('/delete', (req, res) => {
     ], function (error, results) {
         if (error) throw error;
         console.log(results);
-        res.status(200).redirect('/');
     });
+}
+
+const connection = mysql.createConnection({
+    host: '140.134.208.81',
+    port: '8762',
+    user: 'D1031405',
+    password: 'LyImD9z8V_m]am5J',
+    database: 'D1050961'
+});
+
+router.post('/delete', (req, res) => {
+    req.body = JSON.parse(JSON.stringify(req.body));
+    var teacherId = 0;
+
+    console.log(req.body);
+    console.log(Array.isArray(req.body["teacherId"]));
+    if (!Array.isArray(req.body["teacherId"])) {
+        teacherId = req.body['teacherId'];
+        deleteTeacher(teacherId).then(() => {
+            res.status(200).redirect('/');
+        });
+    } else {
+        for (var i in req.body['teacherId']) {
+            console.log(req.body['teacherId']);
+            teacherId = req.body['teacherId'][i];
+    
+            deleteTeacher(teacherId);
+        }
+        res.status(200).redirect('/');
+    }
 });
 
 router.post('/edit', upload.single("file"), (req, res) => {
@@ -294,7 +313,7 @@ router.post('/add', upload.single("file"), (req, res) => {
     )
 
     console.log('Success!');
-    res.redirect('/success');
+    res.redirect('/');
     return res.status(200);
 })
 
@@ -362,5 +381,16 @@ router.get('/getAll', (req, res) => {
         res.status(200).json(results);
     })
 })
+
+router.get('/getMain', (req, res) => {
+    connection.query(
+        'SELECT `Professor_ID`, `Name`, `Position` FROM `Professors` WHERE 1', [],
+        function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.status(200).json(result);
+        }
+    )
+});
 
 module.exports = router;
