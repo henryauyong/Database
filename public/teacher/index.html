@@ -15,14 +15,14 @@
         <div class="hero-content flex-row-reverse gap-96">
             <div class="avatar">
                 <div class="w-96 rounded-full">
-                    <img src="/uploads/58" />
+                    <img src="" id="teacherImage"/>
                 </div>
             </div>
             <div>
-                <h1 class="text-5xl font-bold">李榮三</h1>
-                <p class="py-6">系主任兼教授</p>
-                <p class="py-6">電話：04-24517250</p>
-                <p class="py-6">E-mail：abc@gmail.com</p>
+                <h1 class="text-5xl font-bold" id="teacherName"></h1>
+                <p class="py-6" id="teacherTitle"></p>
+                <p class="py-6" id="teacherPhone">電話：</p>
+                <p class="py-6" id="teacherEmail">E-mail：</p>
             </div>
         </div>
     </div>
@@ -38,12 +38,8 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center bg-base-200">
-                                國立中興大學資訊科學系博士
-                            </td>
-                        </tr>
+                    <tbody id="educationTable">
+                        
                     </tbody>
                 </table>
             </div>
@@ -57,17 +53,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center bg-base-200">
-                                資料庫系統、資料探勘、資訊安全
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center bg-base-200">
-                                資料庫系統、資料探勘、資訊安全
-                            </td>
-                        </tr>
+                    <tbody id="expertiseTable">
                     </tbody>
                 </table>
             </div>
@@ -83,12 +69,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center bg-base-200">
-                                國立中興大學資訊科學系博士
-                            </td>
-                        </tr>
+                    <tbody id="experienceInSchoolTable">
                     </tbody>
                 </table>
             </div>
@@ -102,12 +83,39 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="experienceOutSchoolTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="flex w-full h-full gap-8">
+            <div class="overflow-x-auto grow">
+                <table class="table w-full">
+                    <thead>
                         <tr>
-                            <td class="text-center bg-base-200">
-                                資料庫系統、資料探勘、資訊安全
-                            </td>
+                            <th class="text-center bg-primary text-neutral">
+                                論文
+                            </th>
                         </tr>
+                    </thead>
+                    <tbody id="paperTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="flex w-full h-full gap-8">
+            <div class="overflow-x-auto grow">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-center bg-primary text-neutral">
+                                計劃
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectTable">
                     </tbody>
                 </table>
             </div>

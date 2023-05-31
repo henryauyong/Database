@@ -1,5 +1,3 @@
-let editMode = 0;
-
 async function getTeacherInfo() {
     const response = await fetch("/api/getMain");
     const data = await response.json();
@@ -32,76 +30,19 @@ async function getTeacherInfo() {
 
     Array.from(document.getElementsByClassName("teacherCard")).forEach((element) => {
         element.addEventListener("click", () => {
-            if (editMode) {
-                window.location.href = "/edit?id=" + element.id;
-            }
-        });
-    });
-
-    Array.from(document.getElementsByClassName("deleteCheckbox")).forEach((element) => {
-        element.addEventListener("click", () => {
-            if (element.checked) {
-                console.log("Delete: " + element.id.replace("deleteCheckbox", ""));
-                document.getElementById("deleteInput" + element.id.replace("deleteCheckbox", "")).setAttribute("name", "teacherId");
-            } else {
-                console.log("Cancel: " + element.id.replace("deleteCheckbox", ""));
-                document.getElementById("deleteInput" + element.id.replace("deleteCheckbox", "")).removeAttribute("name");
-            }
+                window.location.href = "/teacher?id=" + element.id;
         });
     });
 
     console.log(data.length);
 }
 
-function toggleEdit() {
-    Array.from(document.getElementsByClassName("deleteCheckbox")).forEach((element) => {
-        element.classList.toggle("invisible");
-    });
-
-    if (document.getElementById("mainPageToggleEditBtn").innerHTML == "取消") {
-        document.getElementById("mainPageToggleEditBtn").innerHTML = "編輯";
-        mainPageDeleteBtn.classList.add("btn-disabled");
-        Array.from(document.getElementsByClassName("deleteCheckbox")).forEach((element) => {
-            element.checked = false;
-        });
-        Array.from(document.getElementsByClassName("deleteInput")).forEach((element) => {
-            element.removeAttribute("name");
-        });
-        mainPageSelectAllCheckbox.checked = false;
-        mainPageSelectAllCheckbox.setAttribute("disabled", "");
-        mainPageSelectAll.classList.add("invisible");
-        editMode = 0;
+function login() {
+    if (username.value == "admin" && password.value == "admin") {
+        window.location.href = "/admin";
     } else {
-        document.getElementById("mainPageToggleEditBtn").innerHTML = "取消";
-        mainPageDeleteBtn.classList.remove("btn-disabled");
-        mainPageSelectAllCheckbox.removeAttribute("disabled");
-        mainPageSelectAll.classList.remove("invisible");
-        editMode = 1;
+        alert("使用者名稱或密碼錯誤！");
     }
-
-    console.log("toggleEdit");
 }
-
-function redirectToAddPage() {
-    window.location.href = "/add"
-}
-
-function selectAll() {
-    
-}
-
-mainPageSelectAllCheckbox.addEventListener("click", () => {
-    if (mainPageSelectAllCheckbox.checked) {
-        Array.from(document.getElementsByClassName("deleteCheckbox")).forEach((element) => {
-            element.checked = true;
-            document.getElementById("deleteInput" + element.id.replace("deleteCheckbox", "")).setAttribute("name", "teacherId");
-        });
-    } else {
-        Array.from(document.getElementsByClassName("deleteCheckbox")).forEach((element) => {
-            element.checked = false;
-            document.getElementById("deleteInput" + element.id.replace("deleteCheckbox", "")).removeAttribute("name");
-        });
-    }
-});
 
 getTeacherInfo();

@@ -45,17 +45,15 @@ async function getTeacherInfo() {
                 element.parentElement.parentElement.parentElement.remove();
                 console.log("delete");
             });
-            // console.log("owo");
         });
     }
     for (; projectTableIndex < data[4].length; projectTableIndex++) {
         projectTable.innerHTML += '<tr><td><input type="hidden" name="projectName' + projectTableIndex + '" value="' + data[4][projectTableIndex].Name + '" />' + data[4][projectTableIndex].Name + '</td><td><input type="hidden" name="projectTime' + projectTableIndex + '" value="' + data[4][projectTableIndex].Time + '" />' + data[4][projectTableIndex].Time + '</td><td><input type="hidden" name="projectSerial' + projectTableIndex + '" value="' + data[4][projectTableIndex].Serial_Code + '" />' + data[4][projectTableIndex].Serial_Code + '</td><td><input type="hidden" name="projectIdentity' + projectTableIndex + '" value="' + data[4][projectTableIndex].Indentity + '" />' + data[4][projectTableIndex].Identity + '</td><td><div class="flex w-full justify-end"><button class="btn btn-sm btn-outline btn-error projectTableDelButton" type="button">刪除</button></div></td></tr>'
-        Array.from(document.getElementsByClassName("paperTableDelButton")).forEach((element) => {
+        Array.from(document.getElementsByClassName("projectTableDelButton")).forEach((element) => {
             element.addEventListener("click", () => {
                 element.parentElement.parentElement.parentElement.remove();
                 console.log("delete");
             });
-            // console.log("owo");
         });
     }
     for (; paperTableIndex < data[5].length; paperTableIndex++) {
@@ -161,7 +159,7 @@ function addProjectEntry() {
             element.parentElement.parentElement.parentElement.remove();
             console.log("delete");
         });
-        // console.log("owo");
+        console.log("owo");
     });
 
     projectNameInput.value = "";

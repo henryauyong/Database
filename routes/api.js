@@ -93,10 +93,11 @@ router.post('/delete', (req, res) => {
         for (var i in req.body['teacherId']) {
             console.log(req.body['teacherId']);
             teacherId = req.body['teacherId'][i];
-    
+
             deleteTeacher(teacherId);
         }
-        res.status(200).redirect('/');
+        res.status(200);
+        res.redirect('/add');
     }
 });
 
@@ -219,11 +220,12 @@ router.post('/edit', upload.single("file"), (req, res) => {
                 )
             }
         }
+        
     });
-
     console.log('Success!');
-    res.redirect('/');
+    res.redirect('/admin');
     return res.status(200);
+
 })
 
 router.post('/add', upload.single("file"), (req, res) => {
@@ -313,7 +315,7 @@ router.post('/add', upload.single("file"), (req, res) => {
     )
 
     console.log('Success!');
-    res.redirect('/');
+    res.redirect('/admin');
     return res.status(200);
 })
 
