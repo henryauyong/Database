@@ -10,6 +10,14 @@ const upload = multer({
     dest: "./public/uploads/"
 });
 
+const connection = mysql.createConnection({
+    host: '140.134.208.81',
+    port: '8762',
+    user: 'D1031405',
+    password: 'LyImD9z8V_m]am5J',
+    database: 'D1050961'
+});
+
 async function deleteTeacher(teacherId) {
     async.parallel([
         function (callback) {
@@ -63,20 +71,12 @@ async function deleteTeacher(teacherId) {
                     callback(err, result6)
                 }
             )
-        }
+        },
     ], function (error, results) {
         if (error) throw error;
         console.log(results);
     });
 }
-
-const connection = mysql.createConnection({
-    host: '140.134.208.81',
-    port: '8762',
-    user: 'D1031405',
-    password: 'LyImD9z8V_m]am5J',
-    database: 'D1050961'
-});
 
 router.post('/delete', (req, res) => {
     req.body = JSON.parse(JSON.stringify(req.body));
@@ -99,7 +99,8 @@ router.post('/delete', (req, res) => {
         res.status(200);
         res.redirect('/add');
     }
-});
+})
+
 
 router.post('/edit', upload.single("file"), (req, res) => {
     const { teacherId, teacherName, teacherTitle, teacherEmail, teacherPhone } = req.body;
