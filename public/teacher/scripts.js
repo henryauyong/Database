@@ -54,8 +54,10 @@ async function getTeacherInfo() {
     for(i = 0; i < data[4].length; i++) {
         projectTable.innerHTML += `
         <tr>
-            <td class="text-center bg-base-200">
+            <td class="text-center bg-base-200 pt-2 pb-2">
+            <p class="break-normal">
                 ${data[4][i].Name}/${data[4][i].Time}/${data[4][i].Serial_Code}/${data[4][i].Identity}
+            </p>
             </td>
         </tr>
         `
@@ -64,8 +66,11 @@ async function getTeacherInfo() {
     for(i = 0; i < data[5].length; i++) {
         paperTable.innerHTML += `
         <tr>
-            <td class="text-center bg-base-200">
+            <td class="text-center bg-base-200  pt-2 pb-2">
+            <p class="break-normal">
+
                 ${data[5][i].Author}/${data[5][i].Title}/${data[5][i].Location}/${data[5][i].Time}
+                </p>
             </td>
         </tr>
         `

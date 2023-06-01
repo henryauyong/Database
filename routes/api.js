@@ -87,7 +87,7 @@ router.post('/delete', (req, res) => {
     if (!Array.isArray(req.body["teacherId"])) {
         teacherId = req.body['teacherId'];
         deleteTeacher(teacherId).then(() => {
-            res.status(200).redirect('/');
+            res.status(200).redirect('/admin');
         });
     } else {
         for (var i in req.body['teacherId']) {
@@ -97,7 +97,7 @@ router.post('/delete', (req, res) => {
             deleteTeacher(teacherId);
         }
         res.status(200);
-        res.redirect('/add');
+        res.redirect('/admin');
     }
 });
 
