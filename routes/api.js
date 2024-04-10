@@ -11,11 +11,11 @@ const upload = multer({
 });
 
 const connection = mysql.createConnection({
-    host: '140.134.208.81',
-    port: '8762',
-    user: 'D1031405',
-    password: 'LyImD9z8V_m]am5J',
-    database: 'D1050961'
+    host: '',
+    port: '',
+    user: '',
+    password: '',
+    database: ''
 });
 
 async function deleteTeacher(teacherId) {
